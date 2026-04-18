@@ -1,0 +1,50 @@
+.verification-box{
+
+    padding:5px 5px 2px 5px;
+    position: relative;
+}
+
+.inner-geodiv{
+
+       /* margin-top: 10px; */
+       border:1px solid #8D8D8D!important;
+       /* margin-top: 20px; */
+       /* padding: 2px; */
+       display:flex;
+       flex-direction: row;
+       background-color: #FECCC9;
+       border-radius: 5px;
+}
+.main-para{
+
+     margin-left: 10px;
+     padding-bottom: 0px!important;
+}
+
+.resend-para{
+
+    line-height: 10.52px;
+    font-size: 12px;
+      font-weight: 700;
+      text-align: end;
+}
+
+.big-heading{
+
+      font-size: 14px;
+      font-weight: 700;
+}
+
+.small-heading{
+
+    line-height: 14.52px;
+    font-size: 12px;
+      font-weight: 400;
+}
+
+.locationicon{
+
+      height: 30px;
+      margin-top: 10px;
+      margin-left: 5px;
+}

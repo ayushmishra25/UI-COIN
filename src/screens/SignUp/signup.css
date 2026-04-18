@@ -1,0 +1,285 @@
+:root {
+    --primaryFont: "Open Sans", system-ui;
+}
+
+html,
+body {
+    font-family: var(--primaryFont) !important;
+}
+
+.signup_page {
+    text-align: center;
+}
+
+.signup_page h3 {
+
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 29.96px;
+    margin: 1rem 0;
+    margin-bottom: 0.5rem;
+}
+
+.signup_page p {
+    color: #C6C6C6;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24.51px;
+}
+
+
+.signup_page p.Mui-error {
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.signup_page .flex-btn {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.signup_page .flex-btn a {
+    border: 1px solid #606060;
+    text-decoration: none;
+    width: 237px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 29.96px;
+    color: #fff;
+}
+
+.signup_page .flex-btn a svg {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+}
+
+.signup_page .flex-btn a:first-child svg {
+    color: #1877f2;
+}
+
+.signup_page .bar_text p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24.51px;
+    margin-bottom: 0;
+    z-index: 1;
+    display: inline-block;
+    padding: 0 2rem;
+}
+
+.signup_page .bar_text {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.signup_page .bar_text::after,
+.signup_page .bar_text::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 15%;
+    height: 0.5px;
+    background-color: #ffff;
+    margin-top: 10px;
+    z-index: -1;
+}
+
+.signup_page .bar_text::after {
+    right: 4%;
+    left: auto;
+}
+
+.signup_page input[type="text"],
+.signup_page input[type="email"],
+.signup_page input[type="password"],
+.signup_page .css-r9m8u-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+    width: 100%;
+    padding: 10px;
+    height: 46px;
+    background: #323232;
+    border-radius: 7px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24.51px;
+    text-align: left;
+}
+.signup_page .css-r9m8u-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{
+    height: 46px !important;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+}
+.signup_page .css-a5rdam-MuiGrid-root{
+  margin-top: -10px;
+  margin-left: -8px !important;
+}
+.signup_page input::placeholder{
+    color: #A6A6A6;
+}
+
+.signup_page button {
+    background: #03B449 !important;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    max-width: 354px;
+    height: 64px;
+    width: 100%;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 29.96px;
+    text-align: left;
+    opacity: 1 !important;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+}
+
+.signup_page form>div {
+    margin-bottom: 1rem;
+}
+
+.signup_page .remember_div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 4rem;
+    margin-top: -1rem;
+}
+
+.signup_page .remember_div .form-check {
+    display: flex;
+    align-items: center;
+}
+
+.remember_div svg {
+    color: #9A9A9ACC;
+    font-size: 18px;
+}
+
+.signup_page p a {
+    color: #fff;
+}
+
+.forget_p {
+    margin-top: 2rem;
+}
+
+.forget_p a {
+    text-decoration: none;
+}
+
+.sign_p a {
+    font-weight: 700;
+    color: #367AFF !important;
+}
+
+.pass_div {
+    position: relative;
+}
+
+.pass_div svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 25px;
+}
+
+.pass_div input {
+    padding-right: 60px !important;
+}
+.signup_page .MuiFormControl-fullWidth{
+  margin-top: 0;
+}
+@media (max-width:767px) {
+    .signup_page h3{
+    font-size: 20px;
+    }
+    .signup_page p{
+        font-size: 14px;
+        margin-top: 0;
+    }
+
+    .login_port .MuiGrid-grid-md-5{
+      width: 90%;
+    }
+    .signup_page  .flex-btn{
+        margin-top: 1.5rem;
+    }
+    .bar_text{
+        padding: 1rem 0;
+    }
+    .form_logout h6,.signup_page .bar_text p{
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 0;
+    }
+    .signup_page input[type="text"], .signup_page input[type="email"],
+     .signup_page input[type="password"], .signup_page .css-r9m8u-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{
+        height: 20px !important;
+        font-size: 14px;
+        font-weight: 400;
+        padding-left: 1rem;
+        border-radius: 4px !important;
+    }
+    .signup_page .remember_div{
+        margin-bottom: 3rem;
+    }
+    .signup_page button{
+        font-size: 14px;
+        font-weight: 700;
+        height: 40px;
+        width: 220px;
+        margin-bottom: 1rem;
+        border-radius: 4px !important;
+    }
+    .signup_page .MuiAutocomplete-clearIndicator {
+        font-size: inherit; /* Reset font size */
+        font-weight: inherit; /* Reset font weight */
+        height: auto; /* Reset height */
+        width: auto; /* Reset width */
+        margin: 0; /* Reset margin */
+        border-radius: 50%; /* Restore the original circular button style */
+      }
+.forget_p{
+    margin-bottom: 0.5rem;
+}
+.eye_icon svg{
+    font-size: 1rem;
+}
+.form_logout .css-opt7yd-MuiStepIcon-text{
+    font-size: 14px;
+    font-weight: 700;
+    font-family: var(--primaryFont);
+}
+.form_logout .css-m8a1uf-MuiSvgIcon-root-MuiStepIcon-root.Mui-active,
+.form_logout .css-m8a1uf-MuiSvgIcon-root-MuiStepIcon-root{
+    width: 38px;
+    height: 38px;
+}
+.form_logout .css-11vmtxu-MuiStepLabel-label.MuiStepLabel-alternativeLabel{
+    font-size: 14px;
+    font-weight: 400;
+}
+.signup_page .bar_text{
+    padding-bottom: 1rem;
+}
+.signup_page .css-a5rdam-MuiGrid-root .MuiGrid-grid-md-12{
+    width: 100%;
+}
+.login_p a{
+    font-weight: 400;
+}
+}

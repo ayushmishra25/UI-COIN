@@ -1,0 +1,15 @@
+
+
+ 
+NODE_ENV=development
+ 
+# REACT_APP_API_BASE_URL=https://casino-acount-api.spinsagacasino.org/
+# REACT_APP_API_BASE_URL_PAYMENT=https://casino-payment-api.spinsagacasino.org/
+# REACT_APP_API_BASE_URL_SPORT=https://sportsfeed.bettdraft.com:5000/
+ 
+ 
+ 
+# NODE_ENV=Prod
+REACT_APP_API_BASE_URL=https://coin-account-api.spinsagacasino.org/
+REACT_APP_API_BASE_URL_PAYMENT=https://coin-payment-api.spinsagacasino.org/
+REACT_APP_API_BASE_URL_SPORT=https://sportsfeed.bettdraft.com:5000/

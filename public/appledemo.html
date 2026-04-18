@@ -1,0 +1,243 @@
+<html>
+
+    <head>Paysafe Checkout Demo
+
+
+
+
+
+	</head>
+
+	<body>
+
+		&nbsp;&nbsp;&nbsp;&nbsp;
+
+		<button onclick="Checkout_USD()"> Paysafe Checkout USD</button>
+
+	<br>
+
+
+
+    </body>
+
+	<script src="https://hosted.test.paysafe.com/checkout/v2/paysafe.checkout.min.js"></script>
+	<!-- <script src="https://hosted.paysafe.com/checkout/v2/paysafe.checkout.min.js"></script>  -->
+	
+
+	
+
+    <script type="text/javascript">
+
+    //Plain text SUT-579840:B-qa2-0-5fcebb02-0-302e021500810761a354c25371b1e81f39a4b3805b62d8777c02150088afbbb38876c056210b523f3392f8356c9c1d0c
+
+	//Based64 version: U1VULTU3OTg0MDpCLXFhMi0wLTVmY2ViYjAyLTAtMzAyZTAyMTUwMDgxMDc2MWEzNTRjMjUzNzFiMWU4MWYzOWE0YjM4MDViNjJkODc3N2MwMjE1MDA4OGFmYmJiMzg4NzZjMDU2MjEwYjUyM2YzMzkyZjgzNTZjOWMxZDBj
+
+	//
+
+	//"<Please-Insert-Your-Base64-Encoded-API-Key below>" 
+
+var API_KEY_MERCHANT = "T1QtMzQxMTYyOkItcDEtMC02NzRkZmY2MC0wLTMwMmMwMjE0MDFjZDI5OWQzODhkNWEyMjU3NDcyMzcyMWEwOGVkODk5YTJkZWRiODAyMTQ3ZjBmZTkzYzNmZDQ1MDg2M2M4M2YxZTYwYzJhMGYzMDRjODlmMGFj";
+
+
+
+
+
+function Checkout_USD() {
+console.log('Checkout_USD')
+	paysafe.checkout.setup(	API_KEY_MERCHANT, {
+
+		currency: "USD",    // 4 currencies currently supported by Paysafe Checkout - "USD", "CAD", "EUR", "GBP"
+
+		amount: 100,      // This qualifies as USD $ 50.00. Multiply Payment Amount by 100 and supply here.
+
+		payout: false,      // payout: true --> for Withdrawal (standalone credits); payout: false --> for Payments/Deposit
+
+		payoutConfig: {     // payoutConfig section required only when payout: true [for Withdrawal cases].
+
+            "maximumAmount": 100000000
+
+        },
+
+		locale: "en_US",
+
+		simulator: "EXTERNAL",
+
+		environment: "LIVE", // --> Production, "TEST" --> test environment for customers to try out Checkout & its features,
+
+		//singleUseCustomerToken: "SP6nHWMOiY1Nq06H",
+
+		customer: {
+
+			firstName: "Paysafe",
+
+			lastName: "Customer",
+
+			email: "igaminghel2p@paysafe.com",
+
+			phone: "4865247894",
+
+			dateOfBirth: {
+
+				day: 1,
+
+				month: 7,
+
+				year: 1990
+
+		 	}
+
+		},
+
+		billingAddress: {      // Supply customer's billing Address here.
+
+			street: "20735 Stevens Creek Blvd",
+
+			street2: "Montessori",
+
+			city: "Cupertino",
+
+			zip: "95014",
+
+			country: "US",
+
+			state: "CA"
+
+		},
+
+		merchantRefNum: "ref_" + btoa(Math.random()).substr(10, 5),  // Will be unique and must keep changing every transaction
+
+		canEditAmount: true,      // Makes the payment amount editable on Checkout screen. Make it false to open Checkout with a fixed non-editable amount.
+
+			amountoptions: [5000, 10000, 100000],
+
+		
+
+		
+
+		merchantDescriptor: {
+
+			dynamicDescriptor: "XYZ",
+
+			phone: "1234567890"
+
+		},
+
+		holderName: "John Smith", //Required for 3DS2
+
+		threeDs: { //Required for 3DS2
+
+		 authenticationPurpose: "PAYMENT_TRANSACTION",
+
+ 		 deviceChannel: "BROWSER",
+
+ 		 merchantUrl: "https://api.qa.paysafe.com/checkout/v2/index.html#/desktop",
+
+ 		 messageCategory: "PAYMENT",
+
+    },
+
+
+
+    displayPaymentMethods: ["card", "applePay"],
+
+
+
+    paymentMethodDetails: {
+
+        card: {
+
+						accountId: "1003097832", 
+
+          },
+
+          applePay: {
+
+              accountId: "1003097832", //optional , needed for multiple ApplePay accountId.
+
+              label: "Pay With Apple",
+
+              requestShippingAddress: false,
+
+              requestBillingAddress: false,
+
+              type: 'buy',
+
+              supportedCountries: ['US', 'CA', 'GB'],
+
+              color: 'white-outline'
+
+          }	
+
+		},
+
+	 isRevampLayout: true,
+
+	
+
+	}, function (instance, error, result) {
+
+			console.log(error);
+
+				// alert(result.paymenthandletoken);
+
+				if (result && result.paymentHandleToken) {
+
+					// make ajax call to Payments API
+
+						alert(result.paymentHandleToken + " - token to be used to make server to server call to payments API");
+
+						alert(JSON.stringify(result, null, 4));
+
+						instance.showSuccessScreen();
+
+				} else {
+
+					//alert(error.message);
+
+					console.log(error);
+
+				}
+
+				if (result.token) {
+
+						alert("Payment Handle Token Value: " + result.token);
+
+                     // pass this token to server to make the payment or payout using Paysafe Payments API.
+
+		}
+
+
+
+	}, function (stage, expired) {
+
+		alert ("Payment Handle Stage :: " + stage);
+
+		switch (stage) {
+
+			//case "BeforePayment": // Handle the screnario
+
+			//case "DuringPayment": // Handle the screnario
+
+			//case "AfterPayment": // Handle the screnario
+
+			//default: // Handle the scenario
+
+			case "PAYMENT_HANDLE_NOT_CREATED": // Handle the scenario
+
+			case "PAYMENT_HANDLE_CREATED":     // Handle the scenario
+
+			case "PAYMENT_HANDLE_REDIRECT":    // Handle the scenario
+
+			case "PAYMENT_HANDLE_PAYABLE":     // Handle the scenario
+
+			default:                           // Handle the scenario
+
+		}
+
+	});
+
+}
+
+	</script>
+
+</html>
